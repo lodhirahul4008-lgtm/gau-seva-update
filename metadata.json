@@ -1,0 +1,6 @@
+{
+  "name": "Gau Seva Trust",
+  "description": "Sacred care and digital stewardship for Bharat's gentle cows, offering interactive live streams, breed profiles, managed sanctuaries, and 80G tax benefit donation calculators.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

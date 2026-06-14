@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #fefccf;
+  --color-outline: #887364;
+  --color-surface-tint: #8f4e00;
+  --color-on-secondary-fixed-variant: #005312;
+  --color-surface-dim: #dedcb1;
+  --color-on-primary-fixed-variant: #6d3a00;
+  --color-primary: #8f4e00;
+  --color-on-surface-variant: #554336;
+  --color-surface-container: #f2f0c4;
+  --color-on-primary-container: #693800;
+  --color-on-surface: #1d1d03;
+  --color-error: #ba1a1a;
+  --color-tertiary-container: #d3ae36;
+  --color-surface-bright: #fefccf;
+  --color-tertiary: #735c00;
+  --color-surface-container-highest: #e6e5b9;
+  --color-on-error: #ffffff;
+  --color-primary-fixed: #ffdcc2;
+  --color-on-background: #1d1d03;
+  --color-on-secondary-container: #217128;
+  --color-surface-container-low: #f8f6c9;
+  --color-on-error-container: #93000a;
+  --color-on-secondary: #ffffff;
+  --color-on-tertiary: #ffffff;
+  --color-primary-fixed-dim: #ffb77a;
+  --color-surface-variant: #e6e5b9;
+  --color-on-primary-fixed: #2e1500;
+  --color-inverse-surface: #323214;
+  --color-inverse-primary: #ffb77a;
+  --color-secondary: #1b6d24;
+  --color-secondary-container: #a0f399;
+  --color-tertiary-fixed-dim: #e9c349;
+  --color-outline-variant: #dbc2b0;
+  --color-on-tertiary-container: #544200;
+  --color-tertiary-fixed: #ffe088;
+  --color-primary-container: #ff9933;
+  --color-on-secondary-fixed: #002204;
+  --color-error-container: #ffdad6;
+  --color-surface: #fefccf;
+  --color-secondary-fixed: #a3f69c;
+  --color-secondary-fixed-dim: #88d982;
+  --color-on-primary: #ffffff;
+  --color-surface-container-high: #eceabe;
+  --color-inverse-on-surface: #f5f3c7;
+  --color-surface-container-lowest: #ffffff;
+  --color-on-tertiary-fixed-variant: #574500;
+  --color-on-tertiary-fixed: #241a00;
+
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Source Serif 4", Georgia, serif;
+}
+
+/* Custom styles matching background texturing & patterns */
+.mandala-pattern {
+  background-image: radial-gradient(circle at 2px 2px, rgba(143, 78, 0, 0.08) 1.5px, transparent 0);
+  background-size: 48px 48px;
+}
+.lotus-bg {
+  position: relative;
+}
+.lotus-bg::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-image: url('https://www.transparenttextures.com/patterns/natural-paper.png');
+  opacity: 0.4;
+  pointer-events: none;
+}
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.8), 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+}
+.premium-shadow {
+  box-shadow: 0 20px 40px -15px rgba(143, 78, 0, 0.1), 0 0 0 1px rgba(143, 78, 0, 0.05);
+}
+.btn-gradient {
+  background: linear-gradient(135deg, #8f4e00 0%, #6d3a00 100%);
+  box-shadow: 0 4px 14px 0 rgba(143, 78, 0, 0.3);
+}
+.btn-gradient:hover {
+  background: linear-gradient(135deg, #a65b00 0%, #8f4e00 100%);
+}
+.hero-gradient {
+  background: linear-gradient(to right, rgba(254, 252, 207, 1) 0%, rgba(254, 252, 207, 0.8) 40%, transparent 100%);
+}
+.video-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
