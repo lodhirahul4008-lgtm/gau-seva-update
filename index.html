@@ -1,6 +1,25 @@
 <!doctype html>
 <html lang="en" class="scroll-smooth">
   <head>
+    <script>
+      // Patch window.fetch to support a setter if it is a getter-only property in sandbox environments
+      (function() {
+        try {
+          var _fetch = window.fetch;
+          var descriptor = Object.getOwnPropertyDescriptor(window, 'fetch') || Object.getOwnPropertyDescriptor(Object.getPrototypeOf(window), 'fetch');
+          if (descriptor && !descriptor.set) {
+            Object.defineProperty(window, 'fetch', {
+              get: function() { return _fetch; },
+              set: function(val) { _fetch = val; },
+              configurable: true,
+              enumerable: true
+            });
+          }
+        } catch (e) {
+          console.warn("Failed to patch window.fetch", e);
+        }
+      })();
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gau Seva Trust | Sacred Care for gentle Gau Mata</title>
