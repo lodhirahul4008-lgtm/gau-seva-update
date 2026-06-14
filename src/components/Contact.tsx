@@ -109,7 +109,8 @@ export default function Contact() {
                   </div>
                 </a>
 
-                <div 
+                <a 
+                  href="tel:8519072355"
                   className="flex items-center gap-4 p-3.5 rounded-2xl hover:bg-slate-50 transition-colors group"
                 >
                   <div className="bg-secondary/10 p-3 rounded-xl text-secondary group-hover:bg-secondary group-hover:text-white transition-colors">
@@ -117,18 +118,21 @@ export default function Contact() {
                   </div>
                   <div className="text-left">
                     <span className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider">
-                      Support Hotline
+                      Support Hotline (Tap to Call)
                     </span>
-                    <span className="text-xs font-semibold text-slate-800 font-mono">
-                      +91 70020 00000 / +91 94350 00000
+                    <span className="text-xs font-bold text-slate-800 font-mono group-hover:text-secondary transition-colors">
+                      +91 85190 72355
+                    </span>
+                    <span className="block text-[9px] text-slate-500">
+                      Alternate Support: +91 70020 00000
                     </span>
                   </div>
-                </div>
+                </a>
 
                 <div 
                   className="flex items-center gap-4 p-3.5 rounded-2xl hover:bg-slate-50 transition-colors group"
                 >
-                  <div className="bg-emerald-500/10 p-3 rounded-xl text-emerald-600 group-hover:bg-emerald-500 group-hover:text-white transition-colors" target="_blank">
+                  <div className="bg-emerald-500/10 p-3 rounded-xl text-emerald-600 group-hover:bg-emerald-500 group-hover:text-white transition-colors">
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div className="text-left">
@@ -138,6 +142,67 @@ export default function Contact() {
                     <span className="text-xs font-semibold text-slate-800 leading-relaxed">
                       Krishna Seva Dham, Raman Reti Path, Vrindavan, UP - 281121
                     </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Dedicated "Visit Us" Card */}
+            <div className="bg-gradient-to-br from-primary/5 via-white to-white p-8 rounded-3xl border border-primary/20 shadow-md space-y-6 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-primary/10 rounded-full blur-2xl -mr-12 -mt-12 pointer-events-none"></div>
+              
+              <div className="flex items-center gap-3">
+                <div className="bg-primary/15 p-2.5 rounded-xl text-primary">
+                  <MapPin className="w-6 h-6" />
+                </div>
+                <div className="text-left">
+                  <h3 className="font-serif text-lg font-bold text-slate-900 leading-snug">
+                    Visit Our Seva Center
+                  </h3>
+                  <p className="text-[10px] font-sans text-primary font-bold tracking-wider uppercase">
+                    Bhopal, Madhya Pradesh
+                  </p>
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                <p className="text-xs text-slate-600 leading-relaxed text-left">
+                  We welcome devotees, volunteers, and well-wishers to visit our welfare center physically to participate in rescue drives, learn about Vedic cow care, or seek 80G tax clearance.
+                </p>
+
+                <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100 space-y-3">
+                  <div className="text-left">
+                    <span className="block text-[9px] font-bold text-slate-400 uppercase tracking-wider mb-1">
+                      Campus Location Address
+                    </span>
+                    <span className="text-xs font-semibold text-slate-800 leading-relaxed block">
+                      New Takshila College, Near Nishatpura Railway Crossing, Bhagat Singh Chauraha, Berasia Rd, Bhopal, MP - 462100
+                    </span>
+                  </div>
+
+                  <hr className="border-slate-100" />
+
+                  <div className="flex justify-between items-center flex-wrap gap-4">
+                    <div className="text-left">
+                      <span className="block text-[9px] font-bold text-slate-400 uppercase tracking-wider">
+                        Call Center Directly
+                      </span>
+                      <a 
+                        href="tel:8519072355"
+                        className="text-sm font-extrabold text-primary hover:underline font-mono"
+                      >
+                        +91 85190 72355
+                      </a>
+                    </div>
+                    
+                    <a 
+                      href="https://www.google.com/maps/dir//New+Takshila+College,+Near+Nishatpura+Railway+Corrsing,+Bhagat+Singh+Chauraha,+Berasia+Rd,+Bhopal,+Madhya+Pradesh+462100/@23.3119671,77.4128187,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x397c6841ae6e1ff1:0xde2fdd3fd3e869aa!2m2!1d77.402913!2d23.2875508?entry=ttu&g_ep=EgoyMDI2MDYxMC4wIKXMDSoASAFQAw%3D%3D"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1.5 bg-primary text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-md hover:bg-primary/95 active:scale-95 transition-all"
+                    >
+                      <span>Get Directions ↗</span>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -155,7 +220,7 @@ export default function Contact() {
               <div className="grid grid-cols-3 gap-3">
                 {/* WhatsApp Community */}
                 <a 
-                  href="https://wa.me/917002000000?text=Radhe%20Radhe%21%20I%20want%20to%20support%20the%20trust%20for%20Cow%20welfare."
+                  href="https://wa.me/918519072355?text=Radhe%20Radhe%21%20I%20want%20to%20support%20the%20trust%20for%20Cow%20welfare."
                   target="_blank"
                   rel="noreferrer"
                   className="flex flex-col items-center justify-center p-4 rounded-2xl bg-emerald-50 border border-emerald-100 hover:bg-emerald-100 transition-colors group text-center"

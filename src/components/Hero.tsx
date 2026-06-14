@@ -93,7 +93,7 @@ export default function Hero({ onDonateClick, onWatchStoryClick }: HeroProps) {
             </button>
 
             <a
-              href="https://wa.me/917002000000?text=Radhe%20Radhe%21%20I%20want%20to%20know%20more%20about%20Gau%20Seva%20Trust."
+              href="https://wa.me/918519072355?text=Radhe%20Radhe%21%20I%20want%20to%20know%2520more%20about%20Gau%20Seva%20Trust."
               target="_blank"
               rel="noreferrer"
               className="bg-emerald-600 hover:bg-emerald-500 text-white px-6 py-4 rounded-2xl font-sans font-bold text-sm shadow-lg flex items-center justify-center gap-2 hover:-translate-y-0.5 active:scale-95 transition-all cursor-pointer text-center"
