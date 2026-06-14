@@ -8,30 +8,44 @@ interface HeroProps {
 
 export default function Hero({ onDonateClick, onWatchStoryClick }: HeroProps) {
   return (
-    <section id="home" className="relative min-h-screen flex items-center overflow-hidden pt-24 pb-12 md:py-0 bg-background">
+    <section id="home" className="relative min-h-screen flex flex-col md:flex-row items-center overflow-hidden pt-16 md:pt-0 bg-background">
       {/* Decorative Mandala backdrop */}
       <div className="absolute inset-0 opacity-[0.03] mandala-pattern pointer-events-none"></div>
 
-      <div className="absolute inset-0 z-0 flex flex-col md:flex-row">
+      {/* For Mobile: Top visual banner that stacks and doesn't overlap text awkwardly */}
+      <div className="w-full h-[35vh] sm:h-[40vh] relative overflow-hidden block md:hidden">
+        <img
+          className="w-full h-full object-cover object-center scale-102"
+          alt="A serene golden-hour cinematic shot of a healthy Gir cow and its small calf"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbHIwk2IKLakXa0_CKutxet6uVpDfHMrT2eqMIw7y6bxVj-jPj7BgbuDFOeqmamUL9HTYGrRZL5u4k4M4D9HhxUN26eyNMYep9Px-UWNwmbsYROMFeZHysaDZkAx_3Mb3eR_k5C4MNuNT07VrcYwWsv6qq8E4CU_QRVPT0SbamR5HFCd-JFCO_J8XHmO2a98bLOBW5hOl0_3beYrc-eran6UfAd-Rbg81HcmcmaETVbLXE6D_6BccqmLuLeqsL2zQl7Z8xnXybiUI"
+          referrerPolicy="no-referrer"
+        />
+        {/* Subtle overlay to blend into background */}
+        <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent"></div>
+      </div>
+
+      {/* For Desktop: Absolute full-height split columns backdrops */}
+      <div className="absolute inset-0 z-0 flex-col md:flex-row hidden md:flex">
         {/* Left Column Background Spacer on Desktop */}
-        <div className="w-full md:w-1/2 h-full bg-background relative z-10 hidden md:block">
+        <div className="w-full md:w-1/2 h-full bg-background relative z-10">
           <div className="absolute inset-0 hero-gradient"></div>
         </div>
-        {/* Right Column Visual Image (Full bleed mobile, half desktop) */}
-        <div className="w-full md:w-1/2 h-[45vh] md:h-full relative overflow-hidden">
+        {/* Right Column Visual Image (half desktop) */}
+        <div className="w-full md:w-1/2 h-full relative overflow-hidden">
           <img
             className="w-full h-full object-cover object-center scale-102"
             alt="A serene golden-hour cinematic shot of a healthy Gir cow and its small calf"
             src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbHIwk2IKLakXa0_CKutxet6uVpDfHMrT2eqMIw7y6bxVj-jPj7BgbuDFOeqmamUL9HTYGrRZL5u4k4M4D9HhxUN26eyNMYep9Px-UWNwmbsYROMFeZHysaDZkAx_3Mb3eR_k5C4MNuNT07VrcYwWsv6qq8E4CU_QRVPT0SbamR5HFCd-JFCO_J8XHmO2a98bLOBW5hOl0_3beYrc-eran6UfAd-Rbg81HcmcmaETVbLXE6D_6BccqmLuLeqsL2zQl7Z8xnXybiUI"
             referrerPolicy="no-referrer"
           />
-          {/* Clean fade gradient to blend beautifully on mobile & desktop */}
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent md:bg-gradient-to-r md:from-background md:to-transparent"></div>
+          {/* Clean fade gradient to blend beautifully on desktop */}
+          <div className="absolute inset-0 bg-gradient-to-r from-background to-transparent"></div>
         </div>
       </div>
 
-      <div className="relative z-20 px-4 md:px-margin-desktop max-w-container-max mx-auto w-full pt-[35vh] md:pt-0">
-        <div className="max-w-2xl bg-background/90 md:bg-transparent backdrop-blur-sm md:backdrop-blur-none p-6 md:p-0 rounded-3xl md:rounded-none border border-primary/5 md:border-none shadow-premium md:shadow-none">
+      {/* Main Content Box Container */}
+      <div className="relative z-20 px-4 md:px-8 max-w-7xl mx-auto w-full py-8 md:py-0">
+        <div className="max-w-2xl bg-transparent p-0 rounded-none border-none shadow-none">
           {/* Slogan pill */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
@@ -48,7 +62,7 @@ export default function Hero({ onDonateClick, onWatchStoryClick }: HeroProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="font-serif text-3xl md:text-display-lg text-on-surface mb-6 md:mb-8 leading-[1.1] tracking-tight text-left"
+            className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-on-surface mb-6 md:mb-8 leading-[1.15] tracking-tight text-left"
           >
             Every Soul Deserves <br />
             <span className="text-primary italic font-serif font-bold">Divine Care.</span>
@@ -59,7 +73,7 @@ export default function Hero({ onDonateClick, onWatchStoryClick }: HeroProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="font-sans text-xs md:text-body-lg text-on-surface-variant mb-8 md:mb-12 max-w-lg leading-relaxed text-left"
+            className="font-sans text-sm md:text-base lg:text-lg text-on-surface-variant mb-8 md:mb-12 max-w-lg leading-relaxed text-left"
           >
             Protecting Bharat's sacred cows through compassionate stewardship. Join a community dedicated to the health, dignity, and spiritual preservation of our gentle Gau Mata.
           </motion.p>
@@ -73,7 +87,7 @@ export default function Hero({ onDonateClick, onWatchStoryClick }: HeroProps) {
           >
             <button
               onClick={onDonateClick}
-              className="btn-gradient text-on-primary px-8 py-4 md:px-10 md:py-5 rounded-2xl font-sans font-bold text-base shadow-xl hover:shadow-primary/30 transition-all hover:-translate-y-0.5 active:scale-95 cursor-pointer text-center"
+              className="btn-gradient text-on-primary px-8 py-4 md:px-10 md:py-4.5 rounded-2xl font-sans font-bold text-base shadow-xl hover:shadow-primary/30 transition-all hover:-translate-y-0.5 active:scale-95 cursor-pointer text-center"
             >
               Start Your Seva
             </button>
@@ -82,7 +96,7 @@ export default function Hero({ onDonateClick, onWatchStoryClick }: HeroProps) {
               href="https://wa.me/917002000000?text=Radhe%20Radhe%21%20I%20want%20to%20know%20more%20about%20Gau%20Seva%20Trust."
               target="_blank"
               rel="noreferrer"
-              className="bg-emerald-600 hover:bg-emerald-500 text-white px-6 py-4 md:py-4.5 rounded-2xl font-sans font-bold text-sm shadow-lg flex items-center justify-center gap-2 hover:-translate-y-0.5 active:scale-95 transition-all cursor-pointer text-center"
+              className="bg-emerald-600 hover:bg-emerald-500 text-white px-6 py-4 rounded-2xl font-sans font-bold text-sm shadow-lg flex items-center justify-center gap-2 hover:-translate-y-0.5 active:scale-95 transition-all cursor-pointer text-center"
             >
               <MessageCircle className="w-5 h-5 fill-current" />
               <span>WhatsApp Support</span>
@@ -95,7 +109,7 @@ export default function Hero({ onDonateClick, onWatchStoryClick }: HeroProps) {
               <div className="w-12 h-12 rounded-full border-2 border-primary flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all shadow-sm">
                 <Play className="w-5 h-5 fill-current" />
               </div>
-              <span>Watch Our Story</span>
+              <span className="text-sm">Watch Our Story</span>
             </button>
           </motion.div>
 
@@ -106,7 +120,7 @@ export default function Hero({ onDonateClick, onWatchStoryClick }: HeroProps) {
             transition={{ duration: 0.8, delay: 0.5 }}
             className="mt-12 md:mt-16 flex items-center gap-6 pt-6 md:pt-8 border-t border-outline-variant/30 max-w-md"
           >
-            <div className="flex -space-x-3">
+            <div className="flex -space-x-3 shrink-0">
               <div className="w-10 h-10 rounded-full border-2 border-background bg-slate-300 overflow-hidden shadow-sm">
                 <img
                   className="w-full h-full object-cover"
@@ -133,7 +147,7 @@ export default function Hero({ onDonateClick, onWatchStoryClick }: HeroProps) {
               </div>
             </div>
             <div>
-              <p className="text-xs font-sans font-semibold text-on-surface-variant tracking-wider leading-relaxed">
+              <p className="text-xs font-sans font-semibold text-on-surface-variant tracking-wider leading-relaxed text-left">
                 Join <span className="font-extrabold text-on-surface text-sm">5,000+</span> National Devotees
                 <br />
                 Contributing to Cow Care this month

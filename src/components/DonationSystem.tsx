@@ -119,10 +119,10 @@ export default function DonationSystem({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/75 z-50 flex items-center justify-center p-4 backdrop-blur-md overflow-y-auto no-scrollbar">
+    <div className="fixed inset-0 bg-black/75 z-50 flex items-center justify-center p-3 sm:p-4 backdrop-blur-md overflow-y-auto no-scrollbar">
       
       {/* Lightbox Main Container Area */}
-      <div className="bg-white rounded-4xl max-w-2xl w-full relative shadow-2xl overflow-hidden text-left my-8">
+      <div className="bg-white rounded-3xl sm:rounded-[2rem] max-w-2xl w-full relative shadow-2xl text-left my-auto max-h-[92vh] sm:max-h-[calc(100vh-4rem)] overflow-y-auto scrollbar-thin">
         
         {/* Modal Header */}
         <div className="bg-primary-fixed/30 px-6 py-5 border-b border-primary/10 flex justify-between items-center bg-zinc-50">
