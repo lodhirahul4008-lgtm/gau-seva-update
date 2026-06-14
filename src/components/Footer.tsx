@@ -73,6 +73,11 @@ export default function Footer({ onSectionClick, onDonateClick }: FooterProps) {
                   Seva Sangha Feed
                 </button>
               </li>
+              <li>
+                <button onClick={() => onSectionClick("contact")} className="hover:text-primary transition-colors cursor-pointer text-left font-bold text-slate-200">
+                  Contact & Support Form
+                </button>
+              </li>
             </ul>
           </div>
 

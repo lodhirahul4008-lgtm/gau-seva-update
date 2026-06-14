@@ -9,8 +9,8 @@ export default function CommunityWall() {
       author: "Gau Seva Trust",
       avatarChar: "G",
       timestamp: "2 hours ago",
-      text: "Today we welcomed two abandoned calves to our Rishikesh sanctuary. They are now safe, fed, and receiving immediate medical attention. Thank you to everyone who supports our mission! 🙏🐄",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAB2BRqmGtvb3cO6QC9vzTj17KUfLRE3fMZgw2I1ntFilgvQL9aPsHJM4Fk3S_0MBpjM3L695FYvN5o_Bo7qXzRK1-1yYXsckED_GWeR0u2CaOvZd4IkD8F2ymqSvHuPFlAsCylniZaV4Z3GEP9dCgrdEpIkgRGSjJQDrY9cFt4Se5zN67f64c9li7HfOkELEvZxBoCmjxU9xx0iN4rZ6u6KZiuqKQbP-CDtVay_XdBuIeq8XJAS04VO4_zD9vWwVH1N5KA1Boe60o",
+      text: "Today we welcomed two abandoned calves to our Rishikesh sanctuary. They are now safe, fed, and receiving immediate medical attention. We captured their entry, immediate veterinary checkup, and safe grazing. Watch our latest rescue update video! 🙏🐄",
+      youtubeId: "hab0z3UESHs",
       likes: 428,
       comments: [
         "Suhail Kumar: God bless these kind spirits!",
@@ -23,8 +23,8 @@ export default function CommunityWall() {
       author: "Gau Seva Trust",
       avatarChar: "G",
       timestamp: "Yesterday",
-      text: "The evening Aarti at Krishna Seva Dham. May the blessings of Gau Mata bring peace and prosperity to all our wonderful donors and devotees. ✨📽️",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCbH15eCo_vkKOr95wDAbNaUp3wfluSRSTr0dwaJktIE64kjuUIiw0l-QvP7NPKrLTHyysZIApLvENSxDe86IbBEFefuqOiYota3I5OUgPZy3XIGt40D-pTUqXRMpWFPjX5Hdf_fDM0gjE2GiYR5aMWw3kZHMWBemH7jkNnSe_qsV_RA9TEh0IKYUEfc2s4lru_1vn7--MSkoZrTav7A6ptD449P132T9k986-HK9po64r4F6axpJENlRJgcRQzkzC4bhgtr7b_gw8",
+      text: "The evening Aarti ceremonies at Krishna Seva Dham, Vrindavan. May the divine frequencies of Vedic prayers and sacred chant singing bring peace and prosperity to all. Sing along with this immersive feed from our Gaushala! ✨📽️",
+      youtubeId: "hab0z3UESHs",
       likes: 1205,
       comments: [
         "Amit Trivedi: Beautiful evening sight! Om Namo Bhagavate.",
@@ -223,16 +223,27 @@ export default function CommunityWall() {
                     {post.text}
                   </p>
 
-                  {/* Attachment image */}
-                  {post.image && (
+                  {/* Attachment video or image */}
+                  {post.youtubeId ? (
+                    <div className="w-full aspect-video rounded-2xl overflow-hidden mb-4 border border-slate-150 shadow-sm bg-black relative">
+                      <iframe
+                        className="absolute inset-0 w-full h-full"
+                        src={`https://www.youtube.com/embed/${post.youtubeId}?autoplay=0&controls=1&rel=0`}
+                        title="Cow Seva Social Video"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      ></iframe>
+                    </div>
+                  ) : post.image ? (
                     <div className="w-full h-48 md:h-64 bg-slate-100 rounded-2xl overflow-hidden mb-4 border border-outline-variant/10">
                       <img
                         alt="Community post attachment"
                         className="w-full h-full object-cover"
                         src={post.image}
+                        referrerPolicy="no-referrer"
                       />
                     </div>
-                  )}
+                  ) : null}
 
                   {/* Likes and Comments Counters panel */}
                   <div className="flex justify-between items-center text-xs text-on-surface-variant pt-3 border-t border-slate-100">

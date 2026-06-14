@@ -9,6 +9,7 @@ import DailyLife from "./components/DailyLife";
 import CommunityWall from "./components/CommunityWall";
 import HowWeHelp from "./components/HowWeHelp";
 import TaxCalculator from "./components/TaxCalculator";
+import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import DonationSystem from "./components/DonationSystem";
 import { Play, X } from "lucide-react";
@@ -83,6 +84,9 @@ export default function App() {
         {/* Section 80G tax calculator */}
         <TaxCalculator />
 
+        {/* Contact and Social outreach Section */}
+        <Contact />
+
       </main>
 
       {/* Polish footer */}
@@ -123,6 +127,7 @@ export default function App() {
                   className="w-full h-full object-cover opacity-85"
                   alt="Sandalwood-coated majestic cow grazing joyfully in meadows"
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKIiDn4dAbEQJAmShpCrqD99P-Hg2KAcFzU1-4OfkzLrvDrZNxC-Q5DIix8VFfLyp48YpScIz2hz5ZtKbIATeW59cDpMXe6GcLQmo00xNKTvZbB5KW3M6Py7gnyl5vFEz1f3K_g7GhGfG70xOjVLYwNFaWKaaQM5ZInYDYG3YSvEkeDXFG9dP55WsVRN4DXTfDvikFhKXxHFitj03fcqxIyXlXDThQuHylIamjZ4qHduYCUMY6z74skFbtI4U_vg7ykxsMKNZ2lEs"
+                  referrerPolicy="no-referrer"
                 />
                 
                 {/* Central trigger inside mock player */}

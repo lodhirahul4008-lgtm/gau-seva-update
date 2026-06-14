@@ -44,6 +44,7 @@ export interface SocialPost {
   timestamp: string;
   text: string;
   image?: string;
+  youtubeId?: string;
   likes: number;
   comments: string[];
   isLikedByUser?: boolean;

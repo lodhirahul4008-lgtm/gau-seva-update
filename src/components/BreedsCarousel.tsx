@@ -26,7 +26,7 @@ export default function BreedsCarousel() {
       id: "b1",
       name: "The Gir Cow",
       description: "Originating in the clean native Gir forests of Kathiawar, Gujarat, they represent one of the most milk-potent indigenous cow lineages in India, celebrated for their unique Suryaketu Nadi.",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBvPFz8_9KVhxQ-hUu2z0SHMnHFyJNyciiXh-DvsY7ntQ8y7tOYBRygOmqHu24ef2Mm-SbPf2gV717TwYCcsQLNZaJKy8CvI0js7VIyP4Rm3rgEo7MUSicw408CV6BxYxhD-z0uWDWCWwo7mAVE8aV5JOvC9gViDdO_4o2P9nncIAYYYAtjfFJDRE7VfXM_AVGDuvymxWRd8bAIk9psEVzbB-gn9OuUVFTt7FzkkC3zkIuDJMllZtNQJArx6U8Z3R-Tt6Xu-Z9mcYM",
+      image: "https://images.unsplash.com/photo-1570042225831-d98fa7577f1e?auto=format&fit=crop&w=800&q=80",
       origin: "Gujarat",
       characteristic: "Suryaketu Nadi",
       details: {
@@ -40,7 +40,7 @@ export default function BreedsCarousel() {
       id: "b2",
       name: "The Sahiwal Breed",
       description: "Recognized by their striking reddish-brown skin pigmentation and heavy humps, Sahiwal cattle represent one of India's most drought-tolerant, premium dairy breeds.",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDo7JZjZlIb6ybyZQA6I_TCKjjm4_U0LsiLaGLH4p4vtIbvSJ0D34pducqbtgTWXkHmSZ0KMkxqEm2S25l1oweQ6h7M8w9uxTkHTwReLtyR-l7RGocD2rOX4JlxNr08XUU_9ovwHnCzy-Q_knZ8_IJNvz2e9e0kRF0Hlfine-UZw2xVB-lYbcIdvAQMNPUO5zPxuF8v7tN2g22-aJfa6nWoubQBsi0xwi_XdyigEpYMxXxG-qOUfynWIR7pWKmY8WjsC-kq680xHwQ",
+      image: "https://images.unsplash.com/photo-1588713917403-91990c50619a?auto=format&fit=crop&w=800&q=80",
       origin: "Punjab / Haryana",
       characteristic: "Heat Resilient",
       details: {
@@ -54,7 +54,7 @@ export default function BreedsCarousel() {
       id: "b3",
       name: "The Tharparkar",
       description: "A gorgeous silvery-grey or pristine white desert lineage celebrated for extreme drought-survival, Tharparkar is native to Rajasthan's desert regions.",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBuvzNLaDa5rRYqRS67AW8ocQnHbepbriBx4IqVmncNWaeF9ecV1OaEXJeZ1mA7blyiLqmU1kXzZ_WNK0SkZ90a3Ktk1kRsgr4k_7OXAW3664vRyoDpDZ1tM1XK6sWQjDV8iWFk12ubVUyWxyiNaqupnybtgA5SCA8dMCcJuFbP94atbubhvKxya06p3owdhdZct6yM3WMG61TRTpRK12KsGpP7bKnzq9Q8vt_0CrsOGUse5F4kdDyGH2aWkUn8EV1iuFYYlp53f7Q",
+      image: "https://images.unsplash.com/photo-1546445317-29f4545e9d53?auto=format&fit=crop&w=800&q=80",
       origin: "Rajasthan",
       characteristic: "Desert Soul",
       details: {
@@ -68,7 +68,7 @@ export default function BreedsCarousel() {
       id: "b4",
       name: "The Red Sindhi",
       description: "Resilient, robust, and highly milk-potent. Red Sindhi represents a very historical and versatile breed that thrives across diverse topographical landscapes.",
-      image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDtjs7U6sq-xlv3zBVGpC9_kyLmd0tYHytlcFJIZ3bHhZLanmqiFZklY9i-1PBrtplSfeu7NlW_fpGzrAgyYmZgQPhNrTwYlfQtwxYmA6mpYAh893xayxhZP45M5fRpY-VlY4fT0Yh7n0ZyJQY5FP_fwuI7JB_EsSkMdaLGd9ljlHS15vG1FmnLjLuujg9iahz-mrldZ8OjNuhHJyEd95W3x14lBdH4O7l-gAAOvN4dAkB4QmeyvUDikZ7gJeFTSYwjsTFjkvXj9PA",
+      image: "https://images.unsplash.com/photo-1596733430284-f74377611119?auto=format&fit=crop&w=800&q=80",
       origin: "Coastal Plains",
       characteristic: "Sacred Devotion",
       details: {
@@ -149,6 +149,7 @@ export default function BreedsCarousel() {
                       alt={breed.name}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       src={breed.image}
+                      referrerPolicy="no-referrer"
                     />
                     {isSelected && (
                       <div className="absolute top-3 right-3 bg-primary text-white px-3 py-1 rounded-full text-[9px] font-sans font-bold uppercase tracking-wider flex items-center gap-1 shadow-md">
@@ -221,6 +222,7 @@ export default function BreedsCarousel() {
                     alt={currentBreed.name}
                     className="w-full h-full object-cover"
                     src={currentBreed.image}
+                    referrerPolicy="no-referrer"
                   />
                 </div>
                 <div>

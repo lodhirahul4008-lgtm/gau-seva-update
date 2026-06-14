@@ -13,7 +13,8 @@ export default function DailyLife() {
       subtitle: "From a critical highway accident to robust wellness",
       desc: "Gauri was rescued mid-winter from a busy federal highway with fractured limb conditions. This 9-minute cinematic capture documents her 3 months of rigorous treatment, surgical intervention by senior vets, and her daily rehabilitation steps inside the Vrindavan medical meadows.",
       image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCdGxKmfR5R4rPxVZmSZ5KNAdoeCrg3GpWncCkvnSssuGYNqeJFThytuBbj9RP_G3aGOF6U8FXNoTTHFn0dalH5ryqnBribJl3S0C23kuC1_pXkPuTkili8M0K0eJJGc-TvcVe2vOmo9SVriAM3HRwEYzljV6Qw6oWC8yzn6QJo5OQKauRS1IqBy0-R1ejhMpRq-6r4UHDusXv3BHUTDz6KQmbDuSOK2giHejCFdIMp_-Ipo_T7hblT2mKRjVYCi0AebFl1nTR0NRk",
-      meta: { duration: "9:14 MIN", views: "14.2k Views", date: "April 2026" }
+      meta: { duration: "9:14 MIN", views: "14.2k Views", date: "April 2026" },
+      youtubeId: "hab0z3UESHs"
     },
     {
       id: "story2",
@@ -22,7 +23,8 @@ export default function DailyLife() {
       subtitle: "Traditional chanting, organic bathing and herbal smoke",
       desc: "Experience the calming divine frequencies that start our cow sanctuary days. Beginning at 5:00 AM, our caretakers engage in vedic chant singing, natural herbal incense disinfection, and gentle brushing which maintains high hygiene, lowers cortisol, and promotes divine mental bonding in cows.",
       image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCXflyEW9ic0slVO3FPKLavIGWS41VQaTSoEtLW1uOtvccO_BfPoCBKs694E7zqt1i3dxeaXXQyE3sEvluUfsu2rwjBBiYkeUILuJeZsWro49YzVWDmIVNwkeZo0bjqRBiACksFOSn4m2v8rgqq02VF-yio_EVFH-pELaxqDHuZB8rmXYV5v0Mxv9jrrl59CFFrm-HQJR5-8vM5SQpJV5S26eH7ccly7ZONslNLNXC0ZgsVvMRWoAYEw17IKQbkHw-a7_pjkmNEaP4",
-      meta: { duration: "6:40 MIN", views: "8.9k Views", date: "May 2026" }
+      meta: { duration: "6:40 MIN", views: "8.9k Views", date: "May 2026" },
+      youtubeId: "hab0z3UESHs" // Direct user YouTube video
     },
     {
       id: "story3",
@@ -31,7 +33,8 @@ export default function DailyLife() {
       subtitle: "Biogas energy, cool-shade roofs and rainwater harvest",
       desc: "At Gau Seva Trust, modern technology supports ecological stewardship. Learn about our architectural practices: dynamic cross-ventilation, eco-friendly heat-repelling roof materials, natural dung processing to launch local gas grids, and clean water preservation channels.",
       image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAmsnOrSDUb8r6CU12A9XFkBVzXGhy8yVKqIwwLjeSG4MqCGbZQp_dmXMcm2MXewPtIanNTUI893hglDbgYKIPOJzbgHq3B1jaYAYu9G1Xll8Q2oWWcpf49uI-PLQ3sx43cwxaG9oSZ9AJV6_rEDWEpdt6jW75fhiOGPFCVWx79GczDVbFv83zZFtqOCM5ZqML72peDlEd-HpxbJRJaTQru33qFLSKANpRa_M8RdvkQLF5XXVklwNRvcifjUcPRfCL-EPQyJsBMQcs",
-      meta: { duration: "12:05 MIN", views: "24.1k Views", date: "June 2026" }
+      meta: { duration: "12:05 MIN", views: "24.1k Views", date: "June 2026" },
+      youtubeId: "hab0z3UESHs" // Direct user YouTube video
     }
   ];
 
@@ -66,6 +69,7 @@ export default function DailyLife() {
                 alt={story.title}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 src={story.image}
+                referrerPolicy="no-referrer"
               />
               {/* Fade gradient details */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent opacity-85 group-hover:opacity-95 transition-opacity"></div>
@@ -128,38 +132,15 @@ export default function DailyLife() {
                 <X className="w-5 h-5" />
               </button>
 
-              {/* Simulated Cinematic Player viewport */}
+              {/* Actual Professional YouTube Player viewport */}
               <div className="relative aspect-video bg-black flex items-center justify-center">
-                <img
-                  className="w-full h-full object-cover opacity-90"
-                  alt={activeStory.title}
-                  src={activeStory.image}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                
-                {/* Central Play Indicator inside mockup player */}
-                <div className="absolute flex flex-col items-center">
-                  <div className="w-14 h-14 rounded-full bg-primary/90 text-white flex items-center justify-center shadow-lg transform hover:scale-105 active:scale-95 transition-all cursor-pointer">
-                    <Play className="w-6 h-6 fill-current text-white translate-x-0.5" />
-                  </div>
-                  <span className="text-white text-xs font-sans font-bold mt-3 uppercase tracking-widest bg-black/40 px-3 py-1.5 rounded-lg border border-white/10">
-                    Press Player to Stream Video
-                  </span>
-                </div>
-
-                {/* Video scrubber controls bar at bottom (Simulated) */}
-                <div className="absolute bottom-4 left-4 right-4 text-white flex justify-between items-center text-[10px] font-mono select-none">
-                  <div className="flex gap-2 items-center">
-                    <span>0:00</span>
-                    <div className="w-44 md:w-80 h-1 bg-white/30 rounded-full overflow-hidden">
-                      <div className="h-full bg-primary w-0"></div>
-                    </div>
-                    <span>{activeStory.meta.duration}</span>
-                  </div>
-                  <div className="flex gap-3">
-                    <span className="text-primary-fixed shrink-0 uppercase tracking-tighter">HD 1080p</span>
-                  </div>
-                </div>
+                <iframe
+                  className="absolute inset-0 w-full h-full border-0"
+                  src={`https://www.youtube.com/embed/${activeStory.youtubeId}?autoplay=1&controls=1&modestbranding=1&rel=0&showinfo=0`}
+                  title={activeStory.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
               </div>
 
               {/* Content Description description */}

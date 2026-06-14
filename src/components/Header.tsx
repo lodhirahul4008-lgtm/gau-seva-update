@@ -24,7 +24,8 @@ export default function Header({ onDonateClick, onSectionClick }: HeaderProps) {
     { name: "Blessed Breeds", id: "breeds" },
     { name: "Live Blessing Cam", id: "live" },
     { name: "Community Wall", id: "community" },
-    { name: "80G Tax Beneft", id: "tax-benefit" },
+    { name: "80G Tax Benefit", id: "tax-benefit" },
+    { name: "Contact Us", id: "contact" },
   ];
 
   return (

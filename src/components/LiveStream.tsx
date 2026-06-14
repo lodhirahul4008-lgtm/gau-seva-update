@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Send, Volume2, VolumeX, Radio, Eye, Disc } from "lucide-react";
+import { Send, Volume2, VolumeX, Radio, Eye, Disc, Play } from "lucide-react";
 
 interface Camera {
   id: string;
@@ -8,11 +8,13 @@ interface Camera {
   subLocation: string;
   poster: string;
   ambientNoise: string;
+  youtubeId: string;
 }
 
 export default function LiveStream() {
   const [selectedCam, setSelectedCam] = useState<string>("cam1");
   const [isMuted, setIsMuted] = useState<boolean>(true);
+  const [playLive, setPlayLive] = useState<boolean>(false);
   const [currentTime, setCurrentTime] = useState<string>("");
   const [chatMessage, setChatMessage] = useState("");
   const [chatFeed, setChatFeed] = useState<Array<{ name: string, message: string, time: string }>>([
@@ -30,7 +32,8 @@ export default function LiveStream() {
       location: "Krishna Seva Dham",
       subLocation: "Grassland Meadow A",
       poster: "https://lh3.googleusercontent.com/aida-public/AB6AXuAKIiDn4dAbEQJAmShpCrqD99P-Hg2KAcFzU1-4OfkzLrvDrZNxC-Q5DIix8VFfLyp48YpScIz2hz5ZtKbIATeW59cDpMXe6GcLQmo00xNKTvZbB5KW3M6Py7gnyl5vFEz1f3K_g7GhGfG70xOjVLYwNFaWKaaQM5ZInYDYG3YSvEkeDXFG9dP55WsVRN4DXTfDvikFhKXxHFitj03fcqxIyXlXDThQuHylIamjZ4qHduYCUMY6z74skFbtI4U_vg7ykxsMKNZ2lEs",
-      ambientNoise: "Birds chirping, soft bells ringing"
+      ambientNoise: "Birds chirping, soft bells ringing",
+      youtubeId: "hab0z3UESHs"
     },
     {
       id: "cam2",
@@ -38,7 +41,8 @@ export default function LiveStream() {
       location: "Himalayan Gau Gram",
       subLocation: "Ganges Bank Shelter",
       poster: "https://lh3.googleusercontent.com/aida-public/AB6AXuD5zxg-wWbrkndBcn1a9BJ_T1tZ6z6Mazy_NezyjMiSJGsMt83dW5b0TOxgFkWY-f0rhCD6KGF8rP_wdEwo2-Ue1mPE09nbF2HBlmxBz3JrXr5Pd-s007RnYkI1SJI3jy7xINBDJAohfdi30PTckZpruEb4z5gYdNhBZj1splmk1BsT8I4Ls3Q-zA1cYEtO2YfKJ-Yz4g5I1vouEjcE8wjNoaTTdIsTZ_hJBO3P89KdKoPYLaF2JYEJBs1ATK5LbUs_27__CnCQABU",
-      ambientNoise: "River murmurs, temple bells"
+      ambientNoise: "River murmurs, temple bells",
+      youtubeId: "hab0z3UESHs" // Since this is a working ID we reuse it or play with different starting timestamp below
     },
     {
       id: "cam3",
@@ -46,7 +50,8 @@ export default function LiveStream() {
       location: "Heritage Gau Shala",
       subLocation: "Sacred Pillar Pavillion",
       poster: "https://lh3.googleusercontent.com/aida-public/AB6AXuAgtT1Quvj6WWcDoPLqURod6NWsY0SGde8ZpHRIi7aZXxP7IZhUs7cJccseuyIlu4Rsgo1F0NVz-u9m6InLEQXC_SxEmAnZgB5zIG77-YB7nDjZvktLCOyNNAfS4CXw3W9zE2osgRPZkX0v10f2QTLhd_webkkkvGp5Y3Anb3ceRbqNYIKkx5VVCFMohkvlOf5G67q1RLbD3PvlABcnja5teiKh-qybn-F-XMvv9XhsIxaMv3oZWaMRiAfBR8yFZxjykRqNujQEJoY",
-      ambientNoise: "Traditional chants, soft wind"
+      ambientNoise: "Traditional chants, soft wind",
+      youtubeId: "hab0z3UESHs"
     }
   ];
 
@@ -152,25 +157,41 @@ export default function LiveStream() {
           
           {/* Left panel: Simulated Web Player */}
           <div className="flex-1 flex flex-col justify-between">
-            <div className="relative rounded-4xl overflow-hidden shadow-xl border-4 border-white bg-slate-900 aspect-video flex flex-col justify-end group">
+            <div 
+              onClick={() => { if(!playLive) setPlayLive(true); }}
+              className="relative rounded-4xl overflow-hidden shadow-xl border-4 border-white bg-slate-900 aspect-video flex flex-col justify-end group cursor-pointer"
+            >
               
-              {/* Photo Background (Simulated streaming camera output) */}
-              <img
-                alt={activeCam.name}
-                className="absolute inset-0 w-full h-full object-cover opacity-85 transition-opacity"
-                src={activeCam.poster}
-              />
+              {playLive ? (
+                <iframe
+                  className="absolute inset-0 w-full h-full z-15"
+                  src={`https://www.youtube.com/embed/${activeCam.youtubeId}?autoplay=1&mute=${isMuted ? "1" : "0"}&playlist=${activeCam.youtubeId}&loop=1&controls=1`}
+                  title={activeCam.name}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              ) : (
+                <>
+                  {/* Photo Background (Simulated streaming camera output) */}
+                  <img
+                    alt={activeCam.name}
+                    className="absolute inset-0 w-full h-full object-cover opacity-85 transition-opacity"
+                    src={activeCam.poster}
+                    referrerPolicy="no-referrer"
+                  />
 
-              {/* Functional Interactive Overlay Canvas */}
-              <canvas
-                ref={canvasRef}
-                className="absolute inset-0 w-full h-full pointer-events-none z-10"
-                width={640}
-                height={360}
-              />
+                  {/* Functional Interactive Overlay Canvas */}
+                  <canvas
+                    ref={canvasRef}
+                    className="absolute inset-0 w-full h-full pointer-events-none z-10"
+                    width={640}
+                    height={360}
+                  />
+                </>
+              )}
 
               {/* Streaming Overlay Metadata */}
-              <div className="absolute top-4 left-4 z-25 flex flex-wrap gap-2 items-center">
+              <div className="absolute top-4 left-4 z-25 flex flex-wrap gap-2 items-center pointer-events-none">
                 <span className="flex items-center gap-1.5 bg-red-600 text-white px-3.5 py-1.5 rounded-full text-[10px] font-sans font-bold uppercase tracking-wider video-pulse shadow-md">
                   <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span>
                   LIVE FEED
@@ -182,7 +203,7 @@ export default function LiveStream() {
               </div>
 
               {/* Streaming Location & Live Clock */}
-              <div className="absolute bottom-4 left-4 z-25 bg-black/60 backdrop-blur-md p-3 rounded-2xl border border-white/15 max-w-sm shadow-md text-white">
+              <div className="absolute bottom-4 left-4 z-25 bg-black/60 backdrop-blur-md p-3 rounded-2xl border border-white/15 max-w-sm shadow-md text-white pointer-events-none">
                 <p className="text-[9px] uppercase tracking-wider opacity-70 font-sans font-semibold">
                   Camera Location
                 </p>
@@ -199,7 +220,10 @@ export default function LiveStream() {
               {/* Audio and Fullscreen interactive panel */}
               <div className="absolute top-4 right-4 z-25 flex items-center gap-2">
                 <button
-                  onClick={() => setIsMuted(!isMuted)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIsMuted(!isMuted);
+                  }}
                   className="w-9 h-9 rounded-full bg-black/50 backdrop-blur-md text-white border border-white/10 flex items-center justify-center hover:bg-black/75 transition-colors cursor-pointer"
                   title={isMuted ? "Unmute Ambient Stream" : "Mute Stream"}
                 >
@@ -207,12 +231,17 @@ export default function LiveStream() {
                 </button>
               </div>
 
-              {/* Grid overlay controls */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
-                <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md border border-white/40 flex items-center justify-center text-white scale-90 group-hover:scale-100 transition-transform cursor-pointer">
-                  <Disc className="w-8 h-8 text-white animate-spin" />
+              {/* Grid overlay controls if not playing */}
+              {!playLive && (
+                <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/35 opacity-100 transition-opacity duration-300 z-20">
+                  <div className="w-16 h-16 rounded-full bg-primary/95 text-white flex items-center justify-center shadow-lg transform scale-100 hover:scale-110 active:scale-95 transition-all cursor-pointer">
+                    <Play className="w-8 h-8 text-white fill-current translate-x-0.5" />
+                  </div>
+                  <span className="text-white text-[11px] font-sans font-extrabold tracking-wider bg-black/55 px-3 py-1.5 rounded-full mt-3 border border-white/15 shadow-sm uppercase">
+                    Connect Live Sanctuary Video
+                  </span>
                 </div>
-              </div>
+              )}
 
               <div className="absolute bottom-0 inset-x-0 h-1.5 bg-white/20 z-20">
                 <div className="w-[85%] h-full bg-primary animate-pulse"></div>

@@ -104,6 +104,7 @@ export default function SanctuaryList({ onSupportSanctuary }: SanctuaryProps) {
                     alt={sanctuary.name}
                     className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
                     src={sanctuary.image}
+                    referrerPolicy="no-referrer"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
                   
